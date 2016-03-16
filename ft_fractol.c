@@ -6,13 +6,12 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 19:18:32 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/15 16:05:05 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/16 15:37:35 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "read_grid.h"
 #include "mlx.h"
-#include "ft_fdf.h"
+#include "ft_fractol.h"
 #include <unistd.h>
 
 int		ft_translucid(void *param)
@@ -39,13 +38,13 @@ void	init_env_vars(t_env *env)
 	env->ft_hauteur_animation_going = 0;
 }
 
-int		init_fdf(int **tab, t_point dimensions)
+int		init_fractol()
 {
 	t_env env;
 
 	env.mlx = mlx_init();
 	env.dimensions = dimensions;
-	env.win = mlx_new_window(env.mlx, WIN_WIDTH, WIN_HEIGHT, "Fil de fer");
+	env.win = mlx_new_window(env.mlx, WIN_WIDTH, WIN_HEIGHT, "Fractol");
 	env.img = mlx_new_image(env.mlx, WIN_WIDTH, WIN_HEIGHT);
 	mlx_do_key_autorepeaton(&env);
 	env.tab = tab;

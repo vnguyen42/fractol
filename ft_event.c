@@ -6,12 +6,11 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 20:47:06 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/15 16:03:44 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/16 15:37:32 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_fdf.h"
-#include "read_grid.h"
+#include "ft_fractol.h"
 #include <math.h>
 #include <stdlib.h>
 

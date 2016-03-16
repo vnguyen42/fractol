@@ -6,7 +6,7 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 19:21:33 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/16 15:31:04 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/16 15:36:18 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef struct		s_env
 	t_point dimensions;
 }					t_env;
 
-int					init_fdf(int **tab, t_point dimensions);
+int					init_fdf();
 void				draw_line(t_env *env, t_point a, t_point b);
 void				draw_grid(t_env *env, int clear);
 t_point				ft_projection(t_env *env, t_point p, float cte);

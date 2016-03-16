@@ -6,12 +6,11 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 19:41:08 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/15 16:09:47 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/16 15:37:42 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_fdf.h"
-#include "read_grid.h"
+#include "ft_fractol.h"
 #include <math.h>
 
 t_point		ft_projection(t_env *env, t_point p, float cte)
