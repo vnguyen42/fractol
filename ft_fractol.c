@@ -6,7 +6,7 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 19:18:32 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/16 15:37:35 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/16 15:39:59 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,9 @@ int		init_fractol()
 	t_env env;
 
 	env.mlx = mlx_init();
-	env.dimensions = dimensions;
 	env.win = mlx_new_window(env.mlx, WIN_WIDTH, WIN_HEIGHT, "Fractol");
 	env.img = mlx_new_image(env.mlx, WIN_WIDTH, WIN_HEIGHT);
 	mlx_do_key_autorepeaton(&env);
-	env.tab = tab;
 	init_env_vars(&env);
 	mlx_loop_hook(env.mlx, ft_translucid, &env);
 	draw_grid(&env, 1);

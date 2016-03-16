@@ -6,13 +6,12 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 19:07:15 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/16 15:37:36 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/16 15:40:19 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fractol.h"
 #include "Libft/libft.h"
-#include "read_grid.h"
 #include <stdio.h>
 
 void	draw_grid(t_env *env, int clear)
