@@ -6,7 +6,7 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 19:21:33 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/15 16:30:46 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/16 15:31:04 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ void				pixel_to_image(unsigned long color, t_env *val,
 					int x, int y);
 void				ft_hauteur_animation(void *param);
 void				clear_screen(t_env *env);
+int					number_of_numbers(char *line);
 
 #endif

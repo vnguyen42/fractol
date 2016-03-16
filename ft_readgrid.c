@@ -6,11 +6,12 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 19:30:15 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/15 16:13:19 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/16 15:31:13 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Libft/libft.h"
+#include "ft_fdf.h"
 #include "read_grid.h"
 #include "get_next_line.h"
 
