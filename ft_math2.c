@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_math2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/14 15:52:09 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/02/25 10:05:04 by vnguyen          ###   ########.fr       */
+/*   Created: 2016/03/17 10:37:36 by vnguyen           #+#    #+#             */
+/*   Updated: 2016/03/17 10:41:31 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# include <stdlib.h>
-# include <fcntl.h>
-# include <unistd.h>
-# define BUFF_SIZE 100
-# include "Libft/libft.h"
+#include "ft_fractol.h"
+#include <math.h>
+#include <stdlib.h>
 
-int get_next_line(int const fd, char **line);
+t_double	nsdouble(double a, double b)
+{
+	t_double new;
 
-#endif
+	new.x = malloc(sizeof(double));
+	new.y = malloc(sizeof(double));
+	*new.x = a;
+	*new.y = b;
+	return (new);
+}

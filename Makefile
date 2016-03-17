@@ -6,7 +6,7 @@
 #    By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/17 19:27:32 by vnguyen           #+#    #+#              #
-#    Updated: 2016/03/16 15:36:45 by vnguyen          ###   ########.fr        #
+#    Updated: 2016/03/17 10:39:24 by vnguyen          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 CC = gcc 
 
-SRC_NAME = get_next_line.c main.c ft_fractol.c ft_graph.c ft_math.c ft_event.c ft_graph_utils.c
+SRC_NAME = main.c ft_fractol.c ft_graph.c ft_math.c ft_event.c ft_graph_utils.c ft_fractales.c ft_math2.c
 
 OBJ_NAME = $(SRC:.c=.o)
 

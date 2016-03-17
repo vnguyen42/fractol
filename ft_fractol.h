@@ -6,7 +6,7 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 19:21:33 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/16 15:40:08 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/17 10:39:39 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ typedef struct		s_line
 	double addx;
 	double addy;
 }					t_line;
+
+typedef struct s_double
+{
+	double *x;
+	double *y;
+}				t_double;
 
 typedef struct  s_point
 {
@@ -66,5 +72,7 @@ void				pixel_to_image(unsigned long color, t_env *val,
 void				ft_hauteur_animation(void *param);
 void				clear_screen(t_env *env);
 int					number_of_numbers(char *line);
+t_double			*ndouble(double *a, double *b);
+t_double			nsdouble(double a, double b);
 
 #endif

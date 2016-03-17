@@ -6,12 +6,13 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 19:41:08 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/16 15:37:42 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/17 10:37:07 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fractol.h"
 #include <math.h>
+#include <stdlib.h>
 
 t_point		ft_projection(t_env *env, t_point p, float cte)
 {
@@ -53,6 +54,16 @@ int			ft_int_diff(int a, int b)
 		return (a - b);
 	else
 		return (b - a);
+}
+
+t_double	*ndouble(double *a, double *b)
+{
+	t_double *new;
+
+	new = malloc(sizeof(t_double));
+	new->x = a;
+	new->y = b;
+	return (new);
 }
 
 void		pixel_to_image(unsigned long color, t_env *val, int x, int y)
