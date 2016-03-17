@@ -6,7 +6,7 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 19:18:32 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/16 15:39:59 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/17 11:59:28 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ int		ft_translucid(void *param)
 
 	env = param;
 	env->color++;
-	draw_grid(env, 1);
-	ft_hauteur_animation(param);
+//	draw_grid(env, 1);
 	return (1);
 }
 
@@ -47,7 +46,7 @@ int		init_fractol()
 	env.img = mlx_new_image(env.mlx, WIN_WIDTH, WIN_HEIGHT);
 	mlx_do_key_autorepeaton(&env);
 	init_env_vars(&env);
-	mlx_loop_hook(env.mlx, ft_translucid, &env);
+//	mlx_loop_hook(env.mlx, ft_translucid, &env);
 	draw_grid(&env, 1);
 	mlx_key_hook(env.win, ft_key_handler, &env);
 	mlx_loop(env.mlx);

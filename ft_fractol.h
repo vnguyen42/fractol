@@ -6,7 +6,7 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 19:21:33 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/17 10:39:39 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/17 12:02:03 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,23 @@ typedef struct		s_line
 
 typedef struct s_double
 {
-	double *x;
-	double *y;
+	double x;
+	double y;
 }				t_double;
+
+typedef struct s_fractal
+{
+	double	cre;
+	double	cim;
+	double	newre;
+	double	newim;
+	double	oldre;
+	double	oldim;
+	double	zoom;
+	double	movex;
+	double	movey;
+	int		max_iter;
+}				t_fractal;
 
 typedef struct  s_point
 {
@@ -69,10 +83,11 @@ int					ft_key_handler(int keycode, void *param);
 int					ft_int_diff(int a, int b);
 void				pixel_to_image(unsigned long color, t_env *val,
 		int x, int y);
-void				ft_hauteur_animation(void *param);
 void				clear_screen(t_env *env);
 int					number_of_numbers(char *line);
-t_double			*ndouble(double *a, double *b);
+t_double			*ndouble(double a, double b);
 t_double			nsdouble(double a, double b);
+void				draw_julia(t_env *env);
+unsigned long		create_rgba(int r, int g, int b, int a);
 
 #endif

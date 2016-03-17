@@ -6,7 +6,7 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 10:37:36 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/17 10:41:31 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/17 12:02:17 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ t_double	nsdouble(double a, double b)
 {
 	t_double new;
 
-	new.x = malloc(sizeof(double));
-	new.y = malloc(sizeof(double));
-	*new.x = a;
-	*new.y = b;
+	new.x = a;
+	new.y = b;
 	return (new);
 }

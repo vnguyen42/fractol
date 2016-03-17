@@ -6,52 +6,55 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/16 16:01:35 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/17 10:41:15 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/17 12:22:34 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fractol.h"
 
-void	draw_julia_iterator(t_double *x, t_double *y,
-		t_double *ni, t_double *cacb)
+t_fractal	init_julia()
 {
-	int do_while = 1;
+	t_fractal k;
 
-	while (do_while || ((*ni->y < (double)100) && (*ni->x < (double)2)))
-	{
-		do_while = 0;
-		ni->y++;
-		*x->y = (*x->x * *x->x) - (*y->y * *y->y) + *cacb->x;
-		*y->y = 2 * *y->x * *x->x + *cacb->y;
-		*ni->x = sqrt(*x->y * *x->y + *y->y * *y->y);
-		*x->x = *x->y;
-		*y->x = *y->y;
-	}
+	k.cre = -0.7;
+	k.cim = 0.27015;
+	k.newre = 0;
+	k.newim = 0;
+	k.oldre = 0;
+	k.oldim = 0;
+	k.movex = 0;
+	k.movey = 0;
+	k.zoom = 1;
+	k.max_iter = 300;
+	return (k);
 }
 
-void	draw_julia(t_env *env, double ca, double cb, double zoom)
+void	draw_julia(t_env *env)
 {
-	t_point pos;
-	double iterator;
-	double norme;
-	t_double x, y;
+	t_fractal k;
+	double zoom = 1, moveX = 0, moveY = 0;
+	int maxIterations = 300;
+	int w = 1000, h = 1000;
 
-	x = nsdouble(0.0,0.0);
-	y = nsdouble(0.0, 0.0);
-	pos.x = -(WIN_WIDTH/2);
-	while (pos.x < (WIN_WIDTH/2))
+	k.cre = -0.7;
+	k.cim = 0.27015;
+
+	for(int y = 0; y < h; y++)
 	{
-		pos.y = -(WIN_HEIGHT/2);
-		while (pos.y < (WIN_HEIGHT/2))
+		for(int x = 0; x < w; x++)
 		{
-			*x.x = pos.x / zoom;
-			*y.x = pos.y / zoom;
-			iterator = 0;
-			draw_julia_iterator(&x, &y, ndouble(&norme, &iterator)
-								, ndouble(&ca, &cb));
-			(void)(env);
-			pos.y++;
+			k.newre = 1.5 * (x - w / 2) / (0.5 * zoom * w) + moveX;
+			k.newim = (y - h / 2) / (0.5 * zoom * h) + moveY;
+			int i;
+			for(i = 0; i < maxIterations; i++)
+			{
+				k.oldre = k.newre;
+				k.oldim = k.newim;
+				k.newre = k.oldre * k.oldre - k.oldim * k.oldim + k.cre;
+				k.newim = 2 * k.oldre * k.oldim + k.cim;
+				if((k.newre * k.newre + k.newim * k.newim) > 4) break;
+			}
+			pixel_to_image(create_rgba(i % 256, 255, 255 * (i < maxIterations), 1), env, x, y);
 		}
-		pos.x++;
 	}
 }

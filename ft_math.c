@@ -6,7 +6,7 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 19:41:08 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/17 10:37:07 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/17 12:01:52 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int			ft_int_diff(int a, int b)
 		return (b - a);
 }
 
-t_double	*ndouble(double *a, double *b)
+t_double	*ndouble(double a, double b)
 {
 	t_double *new;
 
