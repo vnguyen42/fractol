@@ -6,7 +6,7 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/16 16:01:35 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/17 12:22:34 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/17 13:04:47 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ t_fractal	init_julia()
 {
 	t_fractal k;
 
-	k.cre = -0.7;
-	k.cim = 0.27015;
 	k.newre = 0;
 	k.newim = 0;
 	k.oldre = 0;
@@ -26,35 +24,40 @@ t_fractal	init_julia()
 	k.movey = 0;
 	k.zoom = 1;
 	k.max_iter = 300;
+	k.cre = -0.7;
+	k.cim = 0.27015;
 	return (k);
 }
 
 void	draw_julia(t_env *env)
 {
 	t_fractal k;
-	double zoom = 1, moveX = 0, moveY = 0;
-	int maxIterations = 300;
-	int w = 1000, h = 1000;
+	t_point x;
+	int i;
 
-	k.cre = -0.7;
-	k.cim = 0.27015;
-
-	for(int y = 0; y < h; y++)
+	x.y = 0;
+	k = init_julia();
+	while(x.y < WIN_HEIGHT)
 	{
-		for(int x = 0; x < w; x++)
+		x.x = 0;
+		while(x.x < WIN_WIDTH)
 		{
-			k.newre = 1.5 * (x - w / 2) / (0.5 * zoom * w) + moveX;
-			k.newim = (y - h / 2) / (0.5 * zoom * h) + moveY;
-			int i;
-			for(i = 0; i < maxIterations; i++)
+			k.newre = 1.5 * (x.x - WIN_WIDTH / 2) / (0.5 * k.zoom * WIN_WIDTH) + k.movex;
+			k.newim = (x.y - WIN_HEIGHT / 2) / (0.5 * k.zoom * WIN_HEIGHT) + k.movey;
+			i = 0;
+			while(i < k.max_iter)
 			{
 				k.oldre = k.newre;
 				k.oldim = k.newim;
 				k.newre = k.oldre * k.oldre - k.oldim * k.oldim + k.cre;
 				k.newim = 2 * k.oldre * k.oldim + k.cim;
-				if((k.newre * k.newre + k.newim * k.newim) > 4) break;
+				if((k.newre * k.newre + k.newim * k.newim) > 4)
+					break;
+				i++;
 			}
-			pixel_to_image(create_rgba(i % 256, 255, 255 * (i < maxIterations), 1), env, x, y);
+			pixel_to_image(create_rgba(i % 256, 255, 255 * (i < k.max_iter), 1), env, x.x, x.y);
+			x.x++;
 		}
+	x.y++;
 	}
 }
