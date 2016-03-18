@@ -6,13 +6,14 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 20:47:06 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/16 15:37:32 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/18 16:56:20 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fractol.h"
 #include <math.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 void	ft_hauteur_animation(void *param)
 {
@@ -33,47 +34,25 @@ void	ft_hauteur_animation(void *param)
 	}
 }
 
-void	ft_key_handler2(int keycode, t_env *env)
-{
-	if (keycode == 257)
-		env->rotation -= 0.1;
-	else if (keycode == 256)
-		env->rotation += 0.1;
-	else if (keycode == 69)
-		env->grid_space += 2;
-	else if (keycode == 78 && env->grid_space >= 2)
-		env->grid_space -= 2;
-	else if (keycode == 126)
-		env->pos.y -= 25;
-	else if (keycode == 125)
-		env->pos.y += 25;
-	else if (keycode == 123)
-		env->pos.x -= 25;
-	else if (keycode == 124)
-		env->pos.x += 25;
-	else if (keycode == 19)
-		env->hauteur += 1;
-	else if (keycode == 18)
-		env->hauteur -= 1;
-}
-
 int		ft_key_handler(int keycode, void *param)
 {
 	t_env *env;
 
 	env = param;
-	ft_key_handler2(keycode, env);
-	if (keycode == 20)
-	{
-		if (env->ft_hauteur_animation)
-			env->ft_hauteur_animation = 0;
-		else
-			env->ft_hauteur_animation = 1;
-	}
-	if (keycode == 257 || keycode == 256 || keycode == 18
-			|| keycode == 19 || keycode == 69 || keycode == 78
-			|| (keycode >= 123 && keycode <= 126))
-		draw_grid(param, 1);
+	printf("keycode %d\n", keycode);
+	if (keycode == 123)
+		env->movex -= 0.0553;
+	if (keycode == 124)
+		env->pos.x -= 50 / env->zoom;
+	if (keycode == 125)
+		env->pos.y -= 50 / env->zoom;
+	if (keycode == 126)
+		env->movey -= 0.0553;
+	if (keycode == 69)
+		env->zoom += 0.4;
+	if (keycode == 78)
+		env->zoom -= 0.4;
+	draw_grid(env, 1);	
 	if (keycode == 53)
 		exit(0);
 	return (1);

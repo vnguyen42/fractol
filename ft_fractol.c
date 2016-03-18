@@ -6,7 +6,7 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 19:18:32 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/17 11:59:28 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/18 17:03:13 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,20 @@ void	init_env_vars(t_env *env)
 	env->rotation = 101;
 	env->color = 0x00ace6;
 	env->color = 19000;
-	env->pos.x = 300;
-	env->pos.y = 300;
+	env->pos.x = 0;
+	env->pos.y = 0;
 	env->hauteur = 1.0;
 	env->grid_space = 30;
 	env->ft_hauteur_animation = 0;
 	env->ft_hauteur_animation_going = 0;
+	env->zoom = 1.0;
+	env->max_iter = 100;
+	env->movex = 0;
+	env->movey = 0;
+	env->cre = -0.7;
+	env->cim = 0.27015;
+	env->cre = 0.279;
+	env->cim = 0;
 }
 
 int		init_fractol()

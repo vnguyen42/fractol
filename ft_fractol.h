@@ -6,7 +6,7 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 19:21:33 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/17 12:58:31 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/18 16:28:39 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,12 @@ typedef struct		s_env
 	float	rotation;
 	float	hauteur;
 	int		tmp;
+	double	zoom;
+	double	cim;
+	double	cre;
+	double	movex;
+	double	movey;
+	int		max_iter;
 	t_point	pos;
 	int		color;
 	int		grid_space;
@@ -89,5 +95,6 @@ t_double			*ndouble(double a, double b);
 t_double			nsdouble(double a, double b);
 void				draw_julia(t_env *env);
 unsigned long		create_rgba(int r, int g, int b, int a);
+int					ft_positive(int a);
 
 #endif
