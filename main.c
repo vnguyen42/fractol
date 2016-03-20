@@ -6,16 +6,25 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 19:40:04 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/16 15:39:27 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/20 17:55:26 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include "ft_fractol.h"
 
-int		main(void)
+int		main(int argc, char **argv)
 {
-	init_fractol();
+	if (argc < 2)
+		ft_putstr("Utilisation: \n./fractol julia\n./fractol mandelbrot\n");
+	else
+	{
+		if (!ft_strcmp(argv[1],"julia"))
+			init_fractol(JULIA);
+		else if (!ft_strcmp(argv[1], "mandelbrot"))
+			init_fractol(MANDELBROT);
+		else
+			init_fractol(OTHER);
+	}
 	return (0);
 }

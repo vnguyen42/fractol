@@ -6,17 +6,21 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 19:21:33 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/18 16:28:39 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/20 19:21:31 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_FDF_H
 # define FT_FDF_H
-# define WIN_WIDTH 1000
-# define WIN_HEIGHT 1000
+# define WIN_WIDTH 800
+# define WIN_HEIGHT 800
+# define JULIA 1
+# define MANDELBROT 2
+# define OTHER 3
 # include <mlx.h>
 # include <math.h>
 # include <fcntl.h>
+# include "Libft/libft.h" 
 
 typedef struct		s_line
 {
@@ -62,6 +66,7 @@ typedef struct		s_env
 	int		r;
 	int		g;
 	int		b;
+	int		fractale;
 	void	*screen;
 	float	rotation;
 	float	hauteur;
@@ -72,6 +77,7 @@ typedef struct		s_env
 	double	movex;
 	double	movey;
 	int		max_iter;
+	int		color_mode;
 	t_point	pos;
 	int		color;
 	int		grid_space;
@@ -80,7 +86,7 @@ typedef struct		s_env
 	t_point dimensions;
 }					t_env;
 
-int					init_fractol();
+int					init_fractol(int fractale);
 void				draw_line(t_env *env, t_point a, t_point b);
 void				draw_grid(t_env *env, int clear);
 t_point				ft_projection(t_env *env, t_point p, float cte);
@@ -96,5 +102,7 @@ t_double			nsdouble(double a, double b);
 void				draw_julia(t_env *env);
 unsigned long		create_rgba(int r, int g, int b, int a);
 int					ft_positive(int a);
+void				draw_julia_color(t_env *env, int max_iter, t_point x, int i);
+void				ft_hauteur_animation(void *param);
 
 #endif
