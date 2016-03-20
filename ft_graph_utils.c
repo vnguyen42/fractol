@@ -6,7 +6,7 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/15 15:53:42 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/18 15:58:33 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/20 19:50:22 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,15 @@ void	clear_screen(t_env *env)
 		}
 		p.y++;
 	}
+}
+
+t_point		rt_point(int x, int y)
+{
+	t_point a;
+
+	a.x = x;
+	a.y = y;
+	return (a);
 }
 
 unsigned long create_rgba(int r, int g, int b, int a)

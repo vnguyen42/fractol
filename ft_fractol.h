@@ -6,7 +6,7 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 19:21:33 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/20 19:21:31 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/20 20:02:23 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,6 @@ unsigned long		create_rgba(int r, int g, int b, int a);
 int					ft_positive(int a);
 void				draw_julia_color(t_env *env, int max_iter, t_point x, int i);
 void				ft_hauteur_animation(void *param);
+t_point				rt_point(int x, int y);
 
 #endif

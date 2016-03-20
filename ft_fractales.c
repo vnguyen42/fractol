@@ -6,7 +6,7 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/16 16:01:35 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/20 19:46:29 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/20 20:11:39 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,18 +91,18 @@ int     for_random(t_fractal *k, t_point x)
 }
 
 void draw_branch(t_env *env, int depth,
-		float x, float y, float length, float theta,
-		float length_scale, float dtheta)
+		double x, double y, double length, double theta,
+		double length_scale, double dtheta)
 {
-	float x1 = (float)(x + length * Math.Cos(theta));
-	float y1 = (float)(y + length * Math.Sin(theta));
+	double x1 = (double)(x + length * cos(theta));
+	double y1 = (double)(y + length * sin(theta));
 
-	gr.DrawLine(pen, x, y, x1, y1);
+	draw_line(env, rt_point(x,y), rt_point(x1, y1));
 	if (depth > 1)
 	{
-		draw_branch(gr, pen, depth - 1, x1, y1, length * length_scale,
+		draw_branch(env, depth - 1, x1, y1, length * length_scale,
 			theta + dtheta, length_scale, dtheta);
-		draw_branch(gr, pen, depth - 1, x1, y1,
+		draw_branch(env, depth - 1, x1, y1,
 			length * length_scale, theta - dtheta, length_scale, dtheta);
 	}
 }
@@ -114,6 +114,11 @@ void	draw_julia(t_env *env)
 
 	x.y = env->pos.y;
 	k = init_julia(env);
+	if (env->fractale != JULIA && env->fractale != MANDELBROT)
+	{
+		draw_branch(env, 13, 300.0, 600.0, 150.0, 10.0, 0.3, 60.0);
+		return;
+	}
 	while(x.y < WIN_HEIGHT + ft_positive(env->pos.y))
 	{
 		x.x = env->pos.x;
@@ -126,9 +131,6 @@ void	draw_julia(t_env *env)
 			else
 				i = for_random(&k, x);
 			draw_julia_color(env, k.max_iter, x, i);
-			//pixel_to_image(create_rgba((i) % 8 * 32, i % 15 * 16
-			//			, i % 32 * 8 * (i < k.max_iter), 1), env, x.x + env->pos.x,
-			//		x.y + env->pos.y);
 			x.x++;
 		}
 		x.y++;
