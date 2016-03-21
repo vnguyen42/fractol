@@ -6,13 +6,14 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 19:18:32 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/20 20:02:28 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/21 19:23:34 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
 #include "ft_fractol.h"
 #include <unistd.h>
+#include <stdio.h>
 
 int		ft_translucid(void *param)
 {
@@ -57,10 +58,13 @@ int		init_fractol(int fractale)
 	env.img = mlx_new_image(env.mlx, WIN_WIDTH, WIN_HEIGHT);
 	mlx_do_key_autorepeaton(&env);
 	init_env_vars(&env);
+	env.k = init_julia(&env);
 	mlx_loop_hook(env.mlx, ft_translucid, &env);
 	env.fractale = fractale;
 	draw_grid(&env, 1);
 	mlx_key_hook(env.win, ft_key_handler, &env);
+	mlx_mouse_hook(env.win, ft_mouse_handler, &env);
+	mlx_expose_hook(env.win, ft_expose_handler, &env);
 	mlx_loop(env.mlx);
 	return (1);
 }

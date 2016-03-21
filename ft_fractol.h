@@ -6,14 +6,14 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 19:21:33 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/20 20:02:23 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/21 19:26:23 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_FDF_H
 # define FT_FDF_H
-# define WIN_WIDTH 800
-# define WIN_HEIGHT 800
+# define WIN_WIDTH 400
+# define WIN_HEIGHT 400
 # define JULIA 1
 # define MANDELBROT 2
 # define OTHER 3
@@ -48,6 +48,10 @@ typedef struct s_fractal
 	double	zoom;
 	double	movex;
 	double	movey;
+	double	x1;
+	double	x2;
+	double	y1;
+	double	y2;
 	int		max_iter;
 }				t_fractal;
 
@@ -60,30 +64,35 @@ typedef struct  s_point
 
 typedef struct		s_env
 {
-	void	*mlx;
-	void	*win;
-	void	*img;
-	int		r;
-	int		g;
-	int		b;
-	int		fractale;
-	void	*screen;
-	float	rotation;
-	float	hauteur;
-	int		tmp;
-	double	zoom;
-	double	cim;
-	double	cre;
-	double	movex;
-	double	movey;
-	int		max_iter;
-	int		color_mode;
-	t_point	pos;
-	int		color;
-	int		grid_space;
-	int		ft_hauteur_animation;
-	int		ft_hauteur_animation_going;
-	t_point dimensions;
+	void		*mlx;
+	void		*win;
+	void		*img;
+	int			r;
+	int			g;
+	double		x1;
+	double		x2;
+	double		y1;
+	double		y2;
+	int			b;
+	int			fractale;
+	void		*screen;
+	float		rotation;
+	float		hauteur;
+	int			tmp;
+	double		zoom;
+	double		cim;
+	double		cre;
+	double		movex;
+	double		movey;
+	int			max_iter;
+	int			color_mode;
+	t_point		pos;
+	t_fractal	k;
+	int			color;
+	int			grid_space;
+	int			ft_hauteur_animation;
+	int			ft_hauteur_animation_going;
+	t_point 	dimensions;
 }					t_env;
 
 int					init_fractol(int fractale);
@@ -102,8 +111,13 @@ t_double			nsdouble(double a, double b);
 void				draw_julia(t_env *env);
 unsigned long		create_rgba(int r, int g, int b, int a);
 int					ft_positive(int a);
+t_fractal			init_julia(t_env *env);
 void				draw_julia_color(t_env *env, int max_iter, t_point x, int i);
 void				ft_hauteur_animation(void *param);
 t_point				rt_point(int x, int y);
+int					ft_mouse_handler(int keycode, int x, int y, void *param);
+void				zoom_in(t_env *env, double xspan, double yspan, t_double new);
+void				zoom_out(t_env *env, double xspan, double yspan);
+int					ft_expose_handler(int x, int y, void *param);
 
 #endif
