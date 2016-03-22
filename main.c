@@ -6,7 +6,7 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 19:40:04 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/20 17:55:26 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/22 11:06:35 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		main(int argc, char **argv)
 		ft_putstr("Utilisation: \n./fractol julia\n./fractol mandelbrot\n");
 	else
 	{
-		if (!ft_strcmp(argv[1],"julia"))
+		if (!ft_strcmp(argv[1], "julia"))
 			init_fractol(JULIA);
 		else if (!ft_strcmp(argv[1], "mandelbrot"))
 			init_fractol(MANDELBROT);

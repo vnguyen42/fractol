@@ -6,13 +6,13 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/15 15:53:42 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/20 19:50:22 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/22 11:05:28 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fractol.h"
 
-void	clear_screen(t_env *env)
+void			clear_screen(t_env *env)
 {
 	t_point p;
 
@@ -24,15 +24,14 @@ void	clear_screen(t_env *env)
 		p.x = 0;
 		while (p.x < WIN_WIDTH)
 		{
-			pixel_to_image(0x00000000, env,
-					p.x, p.y);
+			pixel_to_image(0x00000000, env, p.x, p.y);
 			p.x++;
 		}
 		p.y++;
 	}
 }
 
-t_point		rt_point(int x, int y)
+t_point			rt_point(int x, int y)
 {
 	t_point a;
 
@@ -41,8 +40,8 @@ t_point		rt_point(int x, int y)
 	return (a);
 }
 
-unsigned long create_rgba(int r, int g, int b, int a)
-{   
-	return ((r & 0xff) << 24) + ((g & 0xff) << 16) + ((b & 0xff) << 8)
-		+ (a & 0xff);
+unsigned long	create_rgba(int r, int g, int b, int a)
+{
+	return (((r & 0xff) << 24) + ((g & 0xff) << 16) + ((b & 0xff) << 8)
+		+ (a & 0xff));
 }

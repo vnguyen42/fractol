@@ -5,15 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/20 20:47:06 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/21 19:38:18 by vnguyen          ###   ########.fr       */
+/*   Created: 2016/03/22 11:00:47 by vnguyen           #+#    #+#             */
+/*   Updated: 2016/03/22 11:00:49 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fractol.h"
 #include <math.h>
 #include <stdlib.h>
-#include <stdio.h>
 
 void	ft_hauteur_animation(void *param)
 {
@@ -73,19 +72,19 @@ int		ft_expose_handler(int x, int y, void *param)
 
 int		ft_mouse_handler(int keycode, int x, int y, void *param)
 {
-	t_env *env;
-	t_double new;
-	double xspan;
-	double yspan;
+	t_env		*env;
+	t_double	new;
+	double		xspan;
+	double		yspan;
 
 	env = param;
 	new.x = x / (WIN_WIDTH / (env->k.x2 - env->k.x1)) + env->k.x1;
 	new.y = y / (WIN_HEIGHT / (env->k.y2 - env->k.y1)) + env->k.y1;
 	xspan = env->k.x2 - env->k.x1;
 	yspan = env->k.y2 - env->k.y1;
-	if (keycode == 1)
+	if (keycode == 4)
 		zoom_in(env, xspan, yspan, new);
-	if (keycode == 2)
+	if (keycode == 6)
 		zoom_out(env, xspan, yspan);
 	return (1);
 }
@@ -96,7 +95,6 @@ int		ft_key_handler(int keycode, void *param)
 
 	env = param;
 	ft_color_mode(keycode, env);
-	printf("keycode %d\n", keycode);
 	if (keycode == 123)
 		env->k.x1 -= 0.0153 * env->zoom;
 	if (keycode == 124)

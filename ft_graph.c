@@ -6,7 +6,7 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 19:07:15 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/20 20:08:34 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/22 11:04:11 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "Libft/libft.h"
 #include <stdio.h>
 
-void    draw_line_transform(t_line *line, t_point a, t_point b
+void	draw_line_transform(t_line *line, t_point a, t_point b
 		, int point_mode)
 {
 	line->x = b.x - a.x;
@@ -28,10 +28,10 @@ void    draw_line_transform(t_line *line, t_point a, t_point b
 	line->y = a.y;
 }
 
-void    draw_line(t_env *env, t_point a, t_point b)
+void	draw_line(t_env *env, t_point a, t_point b)
 {
-	int     i;
-	t_line  line;
+	int		i;
+	t_line	line;
 
 	draw_line_transform(&line, a, b, 0);
 	i = 0;
@@ -56,6 +56,6 @@ void	draw_grid(t_env *env, int clear)
 {
 	if (clear)
 		clear_screen(env);
-	draw_julia(env);	
+	draw_julia(env);
 	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
 }

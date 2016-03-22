@@ -6,7 +6,7 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/20 18:27:49 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/20 19:34:10 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/22 10:55:48 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ void	draw_julia_color(t_env *env, int max_iter, t_point x, int i)
 	}
 	else if (env->color_mode == 3)
 		pixel_to_image(create_rgba(128, i % 32 * 8 * (i < max_iter),
-					 0, i % 32 * 8 * (i < max_iter)), env, x.x,
+			0, i % 32 * 8 * (i < max_iter)), env, x.x,
 				x.y);
 }

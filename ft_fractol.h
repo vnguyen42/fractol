@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fdf.h                                           :+:      :+:    :+:   */
+/*   ft_fractol.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/18 19:21:33 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/21 19:26:23 by vnguyen          ###   ########.fr       */
+/*   Created: 2016/03/22 10:59:48 by vnguyen           #+#    #+#             */
+/*   Updated: 2016/03/22 11:02:26 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_FDF_H
-# define FT_FDF_H
+#ifndef FT_FRACTOL_H
+# define FT_FRACTOL_H
 # define WIN_WIDTH 400
 # define WIN_HEIGHT 400
 # define JULIA 1
@@ -20,7 +20,7 @@
 # include <mlx.h>
 # include <math.h>
 # include <fcntl.h>
-# include "Libft/libft.h" 
+# include "Libft/libft.h"
 
 typedef struct		s_line
 {
@@ -31,13 +31,13 @@ typedef struct		s_line
 	double addy;
 }					t_line;
 
-typedef struct s_double
+typedef struct		s_double
 {
 	double x;
 	double y;
-}				t_double;
+}					t_double;
 
-typedef struct s_fractal
+typedef struct		s_fractal
 {
 	double	cre;
 	double	cim;
@@ -53,14 +53,14 @@ typedef struct s_fractal
 	double	y1;
 	double	y2;
 	int		max_iter;
-}				t_fractal;
+}					t_fractal;
 
-typedef struct  s_point
+typedef struct		s_point
 {
 	int x;
 	int y;
 	int z;
-}               t_point;
+}					t_point;
 
 typedef struct		s_env
 {
@@ -92,7 +92,7 @@ typedef struct		s_env
 	int			grid_space;
 	int			ft_hauteur_animation;
 	int			ft_hauteur_animation_going;
-	t_point 	dimensions;
+	t_point		dimensions;
 }					t_env;
 
 int					init_fractol(int fractale);
@@ -112,12 +112,15 @@ void				draw_julia(t_env *env);
 unsigned long		create_rgba(int r, int g, int b, int a);
 int					ft_positive(int a);
 t_fractal			init_julia(t_env *env);
-void				draw_julia_color(t_env *env, int max_iter, t_point x, int i);
+void				draw_julia_color(t_env *env, int max_iter, t_point x,
+					int i);
 void				ft_hauteur_animation(void *param);
 t_point				rt_point(int x, int y);
 int					ft_mouse_handler(int keycode, int x, int y, void *param);
-void				zoom_in(t_env *env, double xspan, double yspan, t_double new);
+void				zoom_in(t_env *env, double xspan, double yspan,
+					t_double new);
 void				zoom_out(t_env *env, double xspan, double yspan);
 int					ft_expose_handler(int x, int y, void *param);
+int					for_burningship(t_fractal *k, t_point x);
 
 #endif

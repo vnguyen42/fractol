@@ -6,7 +6,7 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 19:41:08 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/18 16:26:58 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/22 11:05:52 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void		pixel_to_image(unsigned long color, t_env *val, int x, int y)
 	int		endian;
 
 	if (x < 0 || x > WIN_WIDTH || y < 0 || y > WIN_HEIGHT)
-		return;
+		return ;
 	image = mlx_get_data_addr(val->img, &bpp, &size_line, &endian);
 	val->r = ((color & 0xFF0000) >> 16);
 	val->g = ((color & 0xFF00) >> 8);
