@@ -6,7 +6,7 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 11:00:47 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/22 11:00:49 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/23 16:20:49 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,12 @@ int		ft_expose_handler(int x, int y, void *param)
 	t_env *env;
 
 	env = param;
-	env->k.cre = (double)x / WIN_WIDTH;
-	env->k.cim = (double)y / WIN_HEIGHT;
+	if (x >= 0 && x <= WIN_WIDTH && y >= 0 && y <= WIN_HEIGHT
+			&& !env->nomouse)
+	{
+		env->k.cre = (double)x / WIN_WIDTH;
+		env->k.cim = (double)y / WIN_HEIGHT;
+	}
 	return (1);
 }
 

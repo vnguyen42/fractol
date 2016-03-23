@@ -6,7 +6,7 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 10:59:48 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/22 11:02:26 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/23 16:19:45 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ typedef struct		s_env
 	double		cim;
 	double		cre;
 	double		movex;
+	int			nomouse;
 	double		movey;
 	int			max_iter;
 	int			color_mode;
@@ -95,7 +96,7 @@ typedef struct		s_env
 	t_point		dimensions;
 }					t_env;
 
-int					init_fractol(int fractale);
+int					init_fractol(int fractale, int nomouse);
 void				draw_line(t_env *env, t_point a, t_point b);
 void				draw_grid(t_env *env, int clear);
 t_point				ft_projection(t_env *env, t_point p, float cte);

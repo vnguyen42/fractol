@@ -6,7 +6,7 @@
 /*   By: vnguyen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 11:00:27 by vnguyen           #+#    #+#             */
-/*   Updated: 2016/03/22 11:00:31 by vnguyen          ###   ########.fr       */
+/*   Updated: 2016/03/23 16:20:07 by vnguyen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	init_env_vars(t_env *env)
 	env->zoom = 1.0;
 	env->max_iter = 90;
 	env->movex = 0;
+	env->nomouse = 0;
 	env->movey = 0;
 	env->cre = -0.4;
 	env->cim = 0.6;
@@ -48,7 +49,7 @@ void	init_env_vars(t_env *env)
 	env->color = 0;
 }
 
-int		init_fractol(int fractale)
+int		init_fractol(int fractale, int nomouse)
 {
 	t_env env;
 
@@ -58,12 +59,14 @@ int		init_fractol(int fractale)
 	mlx_do_key_autorepeaton(&env);
 	init_env_vars(&env);
 	env.k = init_julia(&env);
+	if (nomouse)
+		env.nomouse = 1;
 	mlx_loop_hook(env.mlx, ft_translucid, &env);
 	env.fractale = fractale;
 	draw_grid(&env, 1);
 	mlx_key_hook(env.win, ft_key_handler, &env);
 	mlx_mouse_hook(env.win, ft_mouse_handler, &env);
-	mlx_expose_hook(env.win, ft_expose_handler, &env);
+	mlx_hook(env.win, 6, (1L << 6), ft_expose_handler, &env);
 	mlx_loop(env.mlx);
 	return (1);
 }
